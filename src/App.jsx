@@ -1,9 +1,10 @@
 import { useState, useEffect} from 'react';
 import { FetchImages } from '../img-request';
 import ImageGallery from './components/imagesList/ImageGallery';
-import SearchForm from './components/searchForm/SearchForm';
+import SearchBar from './components/searchBar/SearchBar';
 import Loader from './components/loader/Loader';
-import Modal from './components/modal/Modal';
+import LoadMoreBtn from './components/loadMoreBtn/LoadMoreBtn';
+import ImageModal from './components/imageModal/ImageModal';
 import './App.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
   const [query, setQuery] = useState('');
   const [total, setTotal] = useState(0);
   const [imgId, setImgId] = useState(0);
+  
   const modImg = images.find((img) => img.id === imgId)?.urls.regular;
   
   const handleImgId = (id) => {
@@ -69,12 +71,12 @@ function App() {
   
   return (
     <>
-      <Modal open={openModal} onClick={handleCloseModal} data={images} id={modImg} />
-      <SearchForm onSearch={handleSearch} />
+      <ImageModal open={openModal} onClick={handleCloseModal}  id={modImg} />
+      <SearchBar onSearch={handleSearch} />
       {isloading && <Loader />}
       {error && console.log(" somthing went wrong")}
       {images.length > 0 && <ImageGallery data={images} onClick={handleOpenModal} onId={handleImgId} />}
-      {images.length < total > 0 && <button onClick={handleLoadMore} className='loadBtn'>Load more...</button>}
+      {!isloading && images.length < total  && <LoadMoreBtn onClick={handleLoadMore}/>}
     </>
   );
 }

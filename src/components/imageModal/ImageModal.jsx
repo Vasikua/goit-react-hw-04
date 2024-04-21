@@ -1,6 +1,6 @@
 
-import css from './Modal.module.css'
-export default function Modal({open, onClick, id}) {
+import css from './ImageModal.module.css'
+export default function ImageModal({open, onClick, id}) {
     if (!open) return null;
    
     return (<>

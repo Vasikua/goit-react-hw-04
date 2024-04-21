@@ -9,6 +9,7 @@ export const FetchImages = async (query, currentPage) => {
             client_id: YOUR_ACCESS_KEY,
             page: currentPage,
             per_page: 15,
+           orientation: 'landscape'
         }
     })
    

@@ -1,6 +1,6 @@
-import css from './SearchForm.module.css';
+import css from './SearchBar.module.css';
 import toast, {Toaster} from 'react-hot-toast';
-export default function SearchForm({onSearch}) {
+export default function SearchBar({onSearch}) {
  
 
   const handleSubmit = (event) => {
