@@ -1,7 +1,8 @@
-export default function ImageCard({data:{id, urls:{small}}, onClick, onId}) {
+import css from './ImageCard.module.css'
+export default function ImageCard({ data: { id, urls: { small } }, onClick, onId }) {
  
   return (<>
-            <div onClick={() => {
+            <div className={css.img} onClick={() => {
                   onClick();
                   onId(id)
                         }}>
