@@ -4,3 +4,9 @@
   padding: 2rem;
   text-align: center;
 }
+
+.loadBtn {
+  background-color: rgba(14, 44, 164, 0.77);
+  border: none;
+  color: rgb(255, 255, 255);
+}

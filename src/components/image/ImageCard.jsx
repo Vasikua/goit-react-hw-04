@@ -1,13 +1,11 @@
-export default function ImageCard({data:{urls:{small, regular, full, raw}}}) {
-
-  
-  return (
-        <>
-<div>
-        <img src={small} alt="" />
-        
-</div>
-            
-        </>
-    )
+export default function ImageCard({data:{id, urls:{small}}, onClick, onId}) {
+ 
+  return (<>
+            <div onClick={() => {
+                  onClick();
+                  onId(id)
+                        }}>
+                <img key={id} src={small} alt="img" />
+            </div>
+         </>)
 }
