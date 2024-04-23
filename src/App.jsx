@@ -5,6 +5,8 @@ import SearchBar from './components/searchBar/SearchBar';
 import Loader from './components/loader/Loader';
 import LoadMoreBtn from './components/loadMoreBtn/LoadMoreBtn';
 import ImageModal from './components/imageModal/ImageModal';
+import ReactModal from 'react-modal';
+
 import './App.css';
 
 function App() {
@@ -42,8 +44,12 @@ function App() {
   const handleLoadMore = () => {
     setPage(page + 1);
   };
+  useEffect(() => {
+    ReactModal.setAppElement('#root')
+  },[])
 
   useEffect(() => {
+    
     if (query === "") {
       setTotal(0);
       return;
@@ -52,7 +58,7 @@ function App() {
       try {
         setError(false);
         setLoading(true);
-        const { result, total } = await FetchImages(query, page);
+        const { result, total} = await FetchImages(query, page);
         setTotal(total);
         setImages((prevImages) => {
           return [...prevImages, ...result];
@@ -63,7 +69,7 @@ function App() {
       finally {
         setLoading(false);
       }
-      
+    
     }
     getImages();
   }, [page, query]);
@@ -82,3 +88,4 @@ function App() {
 }
 
 export default App;
+

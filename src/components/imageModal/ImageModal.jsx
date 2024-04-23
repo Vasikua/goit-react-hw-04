@@ -1,9 +1,11 @@
 
 import css from './ImageModal.module.css'
-export default function ImageModal({open, onClick, id}) {
+export default function ImageModal({ open, onClick, id }) {
+ 
     if (!open) return null;
    
     return (<>
+        
         <div
             className={css.overlay}
             onClick={() => {onClick()}}>
@@ -17,6 +19,6 @@ export default function ImageModal({open, onClick, id}) {
                     alt="img"
                 />
             </div>
-        </div>
-    </>);
+        </div> 
+  </>);
 }

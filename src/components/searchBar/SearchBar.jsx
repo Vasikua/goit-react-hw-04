@@ -17,7 +17,8 @@ export default function SearchBar({onSearch}) {
     primary: '#713200',
     secondary: '#FFFAEE',
   },
-});
+      });
+      return
    }
     
     onSearch(query);    
