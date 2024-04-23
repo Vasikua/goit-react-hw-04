@@ -5,7 +5,7 @@ import SearchBar from './components/searchBar/SearchBar';
 import Loader from './components/loader/Loader';
 import LoadMoreBtn from './components/loadMoreBtn/LoadMoreBtn';
 import ImageModal from './components/imageModal/ImageModal';
-import ReactModal from 'react-modal';
+
 
 import './App.css';
 
@@ -44,9 +44,7 @@ function App() {
   const handleLoadMore = () => {
     setPage(page + 1);
   };
-  useEffect(() => {
-    ReactModal.setAppElement('#root')
-  },[])
+  
 
   useEffect(() => {
     
@@ -77,7 +75,7 @@ function App() {
   
   return (
     <>
-      <ImageModal open={openModal} onClick={handleCloseModal}  id={modImg} />
+      <ImageModal openModal={openModal} CloseModal={handleCloseModal}  id={modImg} />
       <SearchBar onSearch={handleSearch} />
       {isloading && <Loader />}
       {error && console.log(" somthing went wrong")}
